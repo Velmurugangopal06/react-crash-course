@@ -1,4 +1,5 @@
 import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
 
 let cities = ["Chennai", "Tirunelveli", "Madurai", "Coimbatore", "Salem"];
 let fruits = ["Apple", "Mango", "Banana", "Grapes", "Orange"];
@@ -24,6 +25,10 @@ function App() {
         heading="Fruits"
         onSelectItem={handleSelectFruit}
       />
+
+      <Alert>
+        This is a simple primary alert—check it out! <b>Vel</b>
+      </Alert>
     </div>
   );
 }
