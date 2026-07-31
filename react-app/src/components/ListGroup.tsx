@@ -3,9 +3,10 @@ import { MouseEvent, useState } from "react";
 interface ListGroupProps {
   items: string[];
   heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: ListGroupProps) {
+function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
   let handleItemClick = (item: string, index: number, event: MouseEvent) => {
     console.log(item, index);
     setSelectedIndex(index);
@@ -26,7 +27,10 @@ function ListGroup({ items, heading }: ListGroupProps) {
                 : "list-group-item"
             }
             key={index}
-            onClick={(event) => handleItemClick(item, index, event)}
+            onClick={(event) => {
+              handleItemClick(item, index, event);
+              onSelectItem(item);
+            }}
           >
             {item}
           </li>
